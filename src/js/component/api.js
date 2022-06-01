@@ -1,6 +1,6 @@
 export async function getTodos() {
 	const response = await fetch(
-		"https://assets.breatheco.de/apis/fake/todos/user/Karinohana"
+		"https://assets.breatheco.de/apis/fake/todos/user/Karinohana2"
 	);
 	const payload = await response.json();
 	return payload;
@@ -14,7 +14,7 @@ export async function createTodo() {
 }
 export async function updateTodo(updatedList) {
 	const update = await fetch(
-		"https://assets.breatheco.de/apis/fake/todos/user/Karinohana",
+		"https://assets.breatheco.de/apis/fake/todos/user/Karinohana2",
 		{
 			method: "PUT",
 			headers: { "Content-Type": "application/json" },

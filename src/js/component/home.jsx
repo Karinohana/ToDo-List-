@@ -32,10 +32,11 @@ const Home = () => {
 	}, []); */
 
 	useEffect(() => {
-		const fn = async () => {
+		/*const fn = async () => {
 			await updateTodo(todoTask.map((x) => ({ label: x, done: false })));
 		};
-		fn();
+		fn(); */
+		updateTodo(todoTask);
 	}, [todoTask]);
 
 	/*useEffect(() => {
@@ -76,7 +77,7 @@ const Home = () => {
 								...prevTask,
 								{ label: inputValue, done: false },
 							]);
-							updateTodo(todoTask);
+
 							setInputValue("");
 						}
 					}}
@@ -91,12 +92,14 @@ const Home = () => {
 								position={index}
 								removeCallBack={(_removeTask) => {
 									settodoTask(
-										todoTask.filter(
-											(task, index) =>
-												index != _removeTask
-										)
+										todoTask.filter((task, index) => {
+											if (index != _removeTask) {
+												return task;
+											}
+										})
 									);
-									updateTodo(todoTask);
+
+									//updateTodo(todoTask);//
 								}}
 								key={index}
 							/>
